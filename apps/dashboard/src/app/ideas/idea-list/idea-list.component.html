@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Random Activites</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let idea of ideas" data-test="idea-list-item" (click)="selected.emit(idea)">
+        <h3 matLine>{{idea.activity}}</h3>
+        <p matLine> Type: {{idea.type}}</p>
+        <p matLine> Participants: {{idea.participants}}</p>
+        <p matLine> Price: ${{idea.price}}</p>
+        <p matLine> Link: {{idea.link}}</p>
+        <p matLine> Key: {{idea.key}}</p>
+        <p matLine> Accessibility: {{idea.accessibility}}</p>
+        
+        <button mat-icon-button (click)="ideaViewed.emit(idea.key); $event.stopImmediatePropagation()">
+          <mat-icon *ngIf="!readonly">chevron_left</mat-icon>
+        </button>
+
+
+        <button mat-icon-button (click)="deleted.emit(idea); $event.stopImmediatePropagation()">
+          <mat-icon *ngIf="!readonly">delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

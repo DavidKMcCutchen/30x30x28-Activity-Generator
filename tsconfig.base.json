@@ -13,9 +13,20 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "@activity-ideas-app/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@activity-ideas-app/api-interfaces": [
+        "libs/api-interfaces/src/index.ts"
+      ],
+      "@activity-ideas-app/core-data": ["libs/core-data/src/index.ts"],
+      "@activity-ideas-app/core-state": ["libs/core-state/src/index.ts"],
+      "@activity-ideas-app/core-states": ["libs/core-states/src/index.ts"],
+      "@activity-ideas-app/environment": ["libs/environment/src/index.ts"],
+      "@activity-ideas-app/material": ["libs/material/src/index.ts"],
+      "@activity-ideas-app/theme": ["libs/theme/src/index.ts"],
+      "@activity-ideas-app/ui-login": ["libs/ui-login/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

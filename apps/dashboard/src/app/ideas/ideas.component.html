@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="col-50" layout="row" layout-align="center center">
+      <activity-ideas-app-idea-list
+        [ideas]="allIdeas$ | async"
+        (selected)="selectIdea($event)"
+        (deleted)="deleteIdea($event)"
+        (ideaViewed)="viewIdea($event)"
+      ></activity-ideas-app-idea-list>
+    </div>
+    <div class="col-50" layout="row" layout-align="center center">
+      <activity-ideas-app-idea-details
+        [idea]="selectedIdea$ | async"
+        (saved)="saveIdea($event)"
+        (cancelled)="resetIdea()"
+        [form]="form"
+      ></activity-ideas-app-idea-details>
+    </div>
+  </div>

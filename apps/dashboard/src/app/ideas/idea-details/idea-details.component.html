@@ -1,0 +1,107 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>
+        <span *ngIf="currentIdea.key; else elseBlock">{{
+          originalTitle
+        }}</span>
+        <ng-template #elseBlock>Create an Activity</ng-template>
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="save(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Activity</mat-label>
+        <input
+          matInput
+          placeholder="Activity"
+          formControlName="activity"
+          type="text"
+          name="activity"
+        />
+      </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+          <mat-label>Type</mat-label>
+          <input
+            matInput
+            placeholder="Type"
+            formControlName="type"
+            type="text"
+            name="type"
+          />
+        </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+            <mat-label>Participants</mat-label>
+            <input
+              matInput
+              placeholder="Participants"
+              formControlName="participants"
+              type="text"
+              name="participants"
+            />
+          </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+              <mat-label>Price</mat-label>
+              <input
+                matInput
+                placeholder="Price"
+                formControlName="price"
+                type="text"
+                name="price"
+              />
+            </mat-form-field>
+
+              <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+                <mat-label>Link</mat-label>
+                <input
+                  matInput
+                  placeholder="Link"
+                  formControlName="link"
+                  type="text"
+                  name="link"
+                />
+              </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+                  <mat-label>Key</mat-label>
+                  <input
+                    matInput
+                    placeholder="Key"
+                    formControlName="key"
+                    type="text"
+                    name="key"
+                  />
+                </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+                    <mat-label>Accessibility</mat-label>
+                    <input
+                      matInput
+                      placeholder="Accessibility"
+                      formControlName="accessibility"
+                      type="text"
+                      name="accessibility"
+                    />
+                  </mat-form-field>
+
+      <section class="full-width">
+      </section>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-button color="primary">
+        {{ originalTitle ? 'Save' : 'Create' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
