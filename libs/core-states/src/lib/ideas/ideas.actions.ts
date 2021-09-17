@@ -16,7 +16,7 @@ export const loadIdeas = createAction(
 
 export const loadIdeasSuccess = createAction(
     '[IDEA] Load Ideas Success',
-    props<{ ideas: Idea[]}>()
+    props<{ idea: Idea}>()
 );
 
 export const loadIdeasFailed = createAction(

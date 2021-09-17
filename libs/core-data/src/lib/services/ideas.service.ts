@@ -19,10 +19,7 @@ export class IdeasService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<any> {
-    return this.http.get<Idea>(this.getUrl()).pipe(
-      tap((res) => console.log(res)),
-      map((response) => response.key)
-    );
+    return this.http.get<Idea>(this.getUrl());
   };
 
   getOne(id: string): Observable<Idea> {

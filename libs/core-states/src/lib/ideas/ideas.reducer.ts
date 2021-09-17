@@ -15,7 +15,10 @@ export interface IdeaPartialState {
     readonly [IDEA_FEATURE_KEY]: IdeaState
 };
 
-export const ideaAdapter: EntityAdapter<Idea> = createEntityAdapter<Idea>({ selectId: (i) => i.key});
+export const ideaAdapter: EntityAdapter<Idea> = createEntityAdapter<Idea>({ selectId: (i) => {
+    console.log(i)
+    return i?.key
+} });
 
 export const initialIdeaState: IdeaState = ideaAdapter.getInitialState(
     {
@@ -60,8 +63,8 @@ const _ideaReducer = createReducer(
         })
     ),
     on(
-        IdeaActions.loadIdeasSuccess, (state, { ideas }) =>
-        ideaAdapter.setAll(ideas, {...state, loaded: true})
+        IdeaActions.loadIdeasSuccess, (state, { idea }) =>
+        ideaAdapter.setOne(idea, {...state, loaded: true})
     ),
     on(
         IdeaActions.deleteIdeaSuccess, (state, { idea }) =>

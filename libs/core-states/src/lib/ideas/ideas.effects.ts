@@ -3,7 +3,7 @@ import { createEffect, Actions, ofType } from "@ngrx/effects";
 import { Idea } from "@activity-ideas-app/api-interfaces";
 import { IdeasService } from "@activity-ideas-app/core-data";
 import * as IdeaActions from './ideas.actions';
-import { map } from "rxjs/operators";
+import { map, tap } from "rxjs/operators";
 import { fetch, pessimisticUpdate } from "@nrwl/angular";
 
 @Injectable()
@@ -27,7 +27,8 @@ export class IdeaEffects{
                     this.ideasService
                     .getAll()
                     .pipe(
-                        map((ideas: Idea[]) => IdeaActions.loadIdeasSuccess({ ideas }))
+                        tap((r) => console.log(r)),
+                        map((idea: Idea) => IdeaActions.loadIdeasSuccess({ idea }))
                     ),
                 onError: (action, error) => IdeaActions.loadIdeasFailed({ error })    
             })
